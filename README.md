@@ -1291,7 +1291,7 @@ nav{
     <div class="banner-h">Your Space Deserves<br>to Be <em>This Seen.</em></div>
     <p class="banner-p">Join 40+ businesses across Madhya Pradesh who let Growsage open their doors to the internet — permanently.</p>
   </div>
-  <a href="growsage-website.html#contact" class="banner-cta">Book a Free Site Visit &#8594;</a>
+<a href="https://wa.me/918823096017?text=Hi%20Growsage!%20I%27d%20like%20to%20book%20a%20free%20site%20visit%20for%20my%20space." class="banner-cta" target="_blank" rel="noopener noreferrer">Book a Free Site Visit &#8594;</a>
 </div>
 
 <!-- ================================================
