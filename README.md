@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#020408">
 <title>GrowSage — Digital Agency That Grows Brands</title>
-<meta name="description" content="digital agency offering social media marketing, website development, 360° virtual tours, UI/UX design, and video editing.">
-<link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-<link href="[https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap)" rel="stylesheet">
+<meta name="description" content="Premium digital agency offering social media marketing, website development, 360° virtual tours, UI/UX design, and video editing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ===================== RESET & BASE ===================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,7 +75,7 @@ section { position: relative; }
 /* ===================== NOISE LAYER ===================== */
 body::after {
   content:''; position:fixed; inset:0; pointer-events:none; z-index:9000; opacity:.018;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='[http://www.w3.org/2000/svg'%3E%3Cfilter](http://www.w3.org/2000/svg'%3E%3Cfilter) id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ===================== NAV ===================== */
@@ -484,13 +483,436 @@ nav.solid {
 .cta-note { font-size:.76rem; color:var(--muted2); margin-top:16px; }
 
 /* ===================== FOOTER ===================== */
+footer {
+  border-top:1px solid var(--border);
+  padding:52px 0 32px;
+  background:var(--bg2);
+}
+.footer-top {
+  display:grid; grid-template-columns:1fr; gap:36px;
+  margin-bottom:40px;
+}
+@media(min-width:600px){ .footer-top { grid-template-columns:1fr 1fr; } }
+@media(min-width:900px){ .footer-top { grid-template-columns:2fr 1fr 1fr 1fr; } }
+.footer-brand .logo { font-size:1.4rem; margin-bottom:12px; display:block; }
+.footer-brand p { font-size:.84rem; line-height:1.7; max-width:240px; }
+.footer-wa-link {
+  display:inline-flex; align-items:center; gap:7px;
+  margin-top:18px; padding:9px 18px;
+  background:rgba(37,211,102,.12); border:1px solid rgba(37,211,102,.28);
+  border-radius:100px; font-size:.78rem; color:#4ade80; font-weight:500;
+  transition:background .25s;
+}
+.footer-wa-link:active { background:rgba(37,211,102,.2); }
+.footer-col h4 {
+  font-family:'Syne',sans-serif; font-size:.72rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.1em; margin-bottom:14px; color:var(--white);
+}
+.footer-col a { display:block; font-size:.82rem; color:var(--muted); margin-bottom:9px; transition:color .25s; }
+.footer-col a:hover { color:var(--white); }
+.footer-bottom {
+  border-top:1px solid var(--border); padding-top:24px;
+  display:flex; flex-direction:column; gap:16px; align-items:center; text-align:center;
+}
+@media(min-width:600px){ .footer-bottom { flex-direction:row; justify-content:space-between; text-align:left; } }
+.footer-copy { font-size:.76rem; color:var(--muted2); }
+.socials { display:flex; gap:10px; }
+.soc {
+  width:34px; height:34px; border-radius:50%;
+  background:var(--glass); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.8rem; transition:border-color .25s, background .25s;
+}
+.soc:hover { border-color:var(--border2); background:var(--glass2); }
+
+/* ===================== FADE-IN ===================== */
+.fi { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.23,1,.32,1), transform .7s cubic-bezier(.23,1,.32,1); }
+.fi.in { opacity:1; transform:translateY(0); }
+.fi.d1 { transition-delay:.08s; }
+.fi.d2 { transition-delay:.16s; }
+.fi.d3 { transition-delay:.24s; }
+.fi.d4 { transition-delay:.32s; }
+.fi.d5 { transition-delay:.40s; }
+
+/* ===================== WHATSAPP FLOAT ===================== */
+.wa-float {
+  position:fixed; bottom:22px; right:18px; z-index:400;
+  width:54px; height:54px; border-radius:50%;
+  background:var(--wa);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 24px rgba(37,211,102,.45);
+  animation:wa-bob 3s ease-in-out infinite;
+  transition:transform .2s;
+}
+.wa-float:active { transform:scale(.93); }
+.wa-float svg { width:28px; height:28px; }
+@keyframes wa-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+@media(min-width:900px){ .wa-float { width:60px; height:60px; bottom:28px; right:28px; } }
+
+/* ===================== MISC HELPERS ===================== */
+.mt-32 { margin-top:32px; }
+.mt-20 { margin-top:20px; }
+
+</style>
+</head>
+<body>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/918823096017" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">Grow<span>Sage</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#tour">Virtual Tour</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+      <a href="https://wa.me/918823096017" target="_blank" class="nav-wa">
+        <svg viewBox="0 0 24 24" fill="#fff" class="wa-svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <a href="#services" class="drawer-link">Services</a>
+  <a href="#why" class="drawer-link">Why Us</a>
+  <a href="#tour" class="drawer-link">Virtual Tour</a>
+  <a href="#process" class="drawer-link">Process</a>
+  <a href="#testimonials" class="drawer-link">Reviews</a>
+  <a href="https://wa.me/918823096017" target="_blank" class="drawer-wa">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp Us
+  </a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-badge fi"><span class="badge-dot"></span> Premium Digital Agency · India</div>
+        <h1 class="fi d1">Grow Faster.<br>Look <span class="grad">Smarter.</span><br>Sell More.</h1>
+        <p class="hero-sub fi d2">We build brands that stop thumbs, fill inboxes, and close deals — with strategy, design & technology that actually works.</p>
+        <div class="hero-btns fi d3">
+          <a href="https://wa.me/918823096017" target="_blank" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" class="wa-svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Free Consultation
+          </a>
+          <a href="#services" class="btn-secondary">View Services →</a>
+        </div>
+        <div class="hero-stats fi d4">
+          <div class="stat-pill"><strong>150+</strong> Projects</div>
+          <div class="stat-pill"><strong>80+</strong> Clients</div>
+          <div class="stat-pill"><strong>340%</strong> Avg Growth</div>
+        </div>
+      </div>
+      <div class="hero-card-wrap fi d2">
+        <div class="hero-card">
+          <div class="card-top">
+            <div class="card-ava">🚀</div>
+            <div class="card-ava-info">
+              <h4>Brand Growth Dashboard</h4>
+              <p>GrowSage Analytics · Live</p>
+            </div>
+          </div>
+          <div class="card-metrics">
+            <div class="cm"><span class="cm-val">340%</span><span class="cm-lbl">Engagement</span></div>
+            <div class="cm"><span class="cm-val">12K</span><span class="cm-lbl">New Reach</span></div>
+            <div class="cm"><span class="cm-val">98%</span><span class="cm-lbl">Happy</span></div>
+          </div>
+          <div class="card-bar-lbl">Monthly Growth Rate</div>
+          <div class="bar-track"><div class="bar-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST ===================== -->
+<section id="trust">
+  <div class="wrap">
+    <div class="trust-grid fi">
+      <div class="trust-item">
+        <span class="trust-num" data-t="150" data-s="+">0+</span>
+        <span class="trust-lbl">Projects Done</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num" data-t="80" data-s="+">0+</span>
+        <span class="trust-lbl">Happy Clients</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num" data-t="340" data-s="%">0%</span>
+        <span class="trust-lbl">Avg Growth</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num" data-t="30" data-s="+">0+</span>
+        <span class="trust-lbl">Brands Worked With</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" style="padding:80px 0;">
+  <div class="wrap">
+    <div class="center fi">
+      <div class="sec-label">What We Do</div>
+      <h2 class="sec-title">Weapons for Your<br>Brand's <span class="grad">Growth</span></h2>
+      <p class="sec-sub">Six high-impact services designed to make your brand impossible to ignore — across every screen, platform, and space.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card fi">
+        <div class="svc-icon">📈</div>
+        <h3>Social Media Marketing</h3>
+        <p>Data-driven campaigns that put your brand in front of the right audience — turning impressions into actual revenue.</p>
+      </div>
+      <div class="svc-card fi d1">
+        <div class="svc-icon">🎯</div>
+        <h3>Social Media Management</h3>
+        <p>Consistent, on-brand content, community building, and reputation management. We handle everything so you can focus on business.</p>
+      </div>
+      <div class="svc-card fi d2">
+        <div class="svc-icon">🌐</div>
+        <h3>360° Virtual Tours</h3>
+        <p>Immersive walkthroughs that let customers explore your space remotely — perfect for real estate, restaurants & institutes.</p>
+      </div>
+      <div class="svc-card fi d1">
+        <div class="svc-icon">💻</div>
+        <h3>Website Development</h3>
+        <p>Fast, conversion-optimized websites that look premium and perform on every device. Built to rank, convert, and impress.</p>
+      </div>
+      <div class="svc-card fi d2">
+        <div class="svc-icon">✦</div>
+        <h3>UI/UX Design</h3>
+        <p>Interfaces that feel effortless and look extraordinary — from wireframe to launch, designed for love at first sight.</p>
+      </div>
+      <div class="svc-card fi d3">
+        <div class="svc-icon">🎬</div>
+        <h3>Video Editing</h3>
+        <p>Cinematic reels, brand films, and ads that stop the scroll — storytelling through visuals that drive real action.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY US ===================== -->
+<section id="why">
+  <div class="wrap">
+    <div class="why-grid-outer">
+      <div>
+        <div class="sec-label fi">Why GrowSage</div>
+        <h2 class="sec-title fi d1">We Don't Just Deliver.<br>We Deliver <span class="grad">Results.</span></h2>
+        <p style="font-size:.9rem;line-height:1.8;color:var(--muted);margin-top:12px;" class="fi d2">Most agencies overpromise and underdeliver. We let our numbers speak. Every project is treated like our most important one — because it is.</p>
+        <a href="https://wa.me/918823096017" target="_blank" class="btn-primary mt-32 fi d3" style="display:inline-flex;">Let's Talk Strategy →</a>
+      </div>
+      <div class="why-cards fi d1">
+        <div class="why-card">
+          <span class="why-ico">⚡</span>
+          <h4>Fast Delivery</h4>
+          <p>Rapid turnarounds without sacrificing quality.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-ico">🧠</span>
+          <h4>Creative Strategy</h4>
+          <p>Every move backed by research and real insight.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-ico">🤖</span>
+          <h4>AI-Powered</h4>
+          <p>Latest AI tools for smarter, faster execution.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-ico">💎</span>
+          <h4>Premium Quality</h4>
+          <p>High-end output across design, copy & strategy.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-ico">📊</span>
+          <h4>Result Driven</h4>
+          <p>We measure success in leads, sales, and growth.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-ico">📱</span>
+          <h4>Mobile First</h4>
+          <p>Everything performs flawlessly on every device.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIRTUAL TOUR ===================== -->
+<section id="tour">
+  <div class="wrap">
+    <div class="center fi">
+      <div class="sec-label">Immersive Experience</div>
+      <h2 class="sec-title">Step Inside Before<br>You <span class="grad">Walk In</span></h2>
+      <p class="sec-sub">Our 360° virtual tours give customers a fully immersive preview of your space — from anywhere in the world.</p>
+    </div>
+    <div class="tour-box fi">
+      <div class="tour-bg-glow"></div>
+      <div class="tour-grid-bg"></div>
+      <div class="hs" style="top:28%;left:22%;" title="Living Room"><span class="hs-label">Living Room</span></div>
+      <div class="hs" style="top:55%;right:25%;" title="Kitchen"><span class="hs-label">Kitchen</span></div>
+      <div class="hs" style="bottom:22%;left:42%;" title="Master Suite"><span class="hs-label">Master Suite</span></div>
+      <div class="tour-content">
+        <div class="tour-sphere"></div>
+        <div class="tour-title">360° Interactive Tour</div>
+        <div class="tour-desc">Drag · Explore · Experience</div>
+        <a href="https://wa.me/918823096017" target="_blank" class="tour-cta-btn">🌐 Get a Tour for My Business</a>
+      </div>
+    </div>
+    <div class="tour-cards fi d1">
+      <div class="tour-mini-card">
+        <div class="ico">🏠</div>
+        <h4>Real Estate</h4>
+        <p>Let buyers tour remotely and decide faster.</p>
+      </div>
+      <div class="tour-mini-card">
+        <div class="ico">🍽️</div>
+        <h4>Restaurants</h4>
+        <p>Show off ambiance, fill tables in advance.</p>
+      </div>
+      <div class="tour-mini-card">
+        <div class="ico">🎓</div>
+        <h4>Institutes</h4>
+        <p>Immersive campus experience from anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process">
+  <div class="wrap">
+    <div class="center fi">
+      <div class="sec-label">How We Work</div>
+      <h2 class="sec-title">From Idea to Impact<br>in <span class="grad">4 Steps</span></h2>
+      <p class="sec-sub">A clear, battle-tested process that eliminates guesswork and gets your brand moving forward — fast.</p>
+    </div>
+    <div class="process-list">
+      <div class="proc-card fi">
+        <div class="proc-num">01</div>
+        <span class="proc-icon">🔍</span>
+        <h3>Discovery</h3>
+        <p>Deep dive into your brand, goals, audience, and competitors to uncover real opportunities.</p>
+      </div>
+      <div class="proc-card fi d1">
+        <div class="proc-num">02</div>
+        <span class="proc-icon">🧭</span>
+        <h3>Strategy</h3>
+        <p>A tailored game plan — content, channels, timelines, and KPIs — built around your specific goals.</p>
+      </div>
+      <div class="proc-card fi d2">
+        <div class="proc-num">03</div>
+        <span class="proc-icon">⚙️</span>
+        <h3>Execution</h3>
+        <p>Flawless delivery — designs, campaigns, and content that look premium and perform powerfully.</p>
+      </div>
+      <div class="proc-card fi d3">
+        <div class="proc-num">04</div>
+        <span class="proc-icon">📈</span>
+        <h3>Growth</h3>
+        <p>Ongoing optimization and reporting to scale what works and double down on real results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="center fi">
+      <div class="sec-label">Client Stories</div>
+      <h2 class="sec-title">Real Brands.<br><span class="grad">Real Results.</span></h2>
+      <p class="sec-sub">Don't just take our word for it — hear from the businesses we've helped grow.</p>
+    </div>
+    <div class="testi-list">
+      <div class="testi-card fi">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"GrowSage transformed our restaurant's social presence. Instagram went from 800 to 12,000 followers in 3 months and our tables are booked every weekend. Worth every rupee."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#2563ff,#7c3aed);">R</div>
+          <div><div class="testi-name">Rahul Mehra</div><div class="testi-role">Owner, Mehra's Kitchen · Indore</div></div>
+        </div>
+      </div>
+      <div class="testi-card fi d1">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The 360° virtual tour brought 3x more inquiries to our institute. Parents and students can now explore our campus before visiting. Truly innovative work."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">P</div>
+          <div><div class="testi-name">Priya Sharma</div><div class="testi-role">Director, Apex Academy</div></div>
+        </div>
+      </div>
+      <div class="testi-card fi d2">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Our new website by GrowSage generated 40 leads in the first week of launch. The design is exactly what I envisioned — premium, fast, and converts like crazy."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#00d4ff,#2563ff);">A</div>
+          <div><div class="testi-name">Arjun Patel</div><div class="testi-role">Founder, Patel Realty Group</div></div>
+        </div>
+      </div>
+      <div class="testi-card fi d1">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"GrowSage's content strategy and reels doubled my YouTube subscribers and helped me sell out my coaching course in 72 hours. Absolutely incredible results."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#f97316,#ea580c);">S</div>
+          <div><div class="testi-name">Sneha Rajput</div><div class="testi-role">Business Coach · 45K Followers</div></div>
+        </div>
+      </div>
+      <div class="testi-card fi d2">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"GrowSage delivered a premium UI/UX design for our app that our investors loved. The team is highly responsive, creative, and understands business — not just design."</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#22c55e,#16a34a);">V</div>
+          <div><div class="testi-name">Varun Joshi</div><div class="testi-role">CEO, NestStart Technologies</div></div>
+        </div>
+      </div>
+      <div class="testi-card fi d3">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Our café's brand videos went viral locally — 2 lakh views in a week, 500 new followers daily, and we had to hire 3 new staff to manage the rush. Unreal!"</p>
+        <div class="testi-author">
+          <div class="testi-ava" style="background:linear-gradient(135deg,#ec4899,#9333ea);">N</div>
+          <div><div class="testi-name">Nisha Kapoor</div><div class="testi-role">Owner, Brew & Bloom Café</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-badge fi">Limited Slots This Month</div>
+    <h2 class="fi d1">Ready to Grow<br>Your <span class="grad">Brand?</span></h2>
+    <p class="fi d2">Join 80+ businesses that chose GrowSage. Book a free strategy call today — no commitment, just clarity and a clear path to growth.</p>
+    <a href="https://wa.me/918823096017" target="_blank" class="btn-wa-big fi d3">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp — It's Free
+    </a>
+    <p class="cta-note fi d4">⚡ Responds within 15 mins · No spam · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
         <span class="logo">Grow<span>Sage</span></span>
         <p>A premium digital agency helping local businesses, coaches, institutes, and startups grow their brand — faster and smarter.</p>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank" class="footer-wa-link">
+        <a href="https://wa.me/918823096017" target="_blank" class="footer-wa-link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           +91 88230 96017
         </a>
@@ -505,12 +927,12 @@ nav.solid {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank">Social Media Marketing</a>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank">Social Management</a>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank">360° Virtual Tours</a>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank">Website Development</a>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank">UI/UX Design</a>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank">Video Editing</a>
+        <a href="https://wa.me/918823096017" target="_blank">Social Media Marketing</a>
+        <a href="https://wa.me/918823096017" target="_blank">Social Management</a>
+        <a href="https://wa.me/918823096017" target="_blank">360° Virtual Tours</a>
+        <a href="https://wa.me/918823096017" target="_blank">Website Development</a>
+        <a href="https://wa.me/918823096017" target="_blank">UI/UX Design</a>
+        <a href="https://wa.me/918823096017" target="_blank">Video Editing</a>
       </div>
       <div class="footer-col">
         <h4>We Serve</h4>
@@ -534,7 +956,7 @@ nav.solid {
         <a href="#" class="soc" aria-label="LinkedIn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <a href="[https://wa.me/918823096017](https://wa.me/918823096017)" target="_blank" class="soc" aria-label="WhatsApp">
+        <a href="https://wa.me/918823096017" target="_blank" class="soc" aria-label="WhatsApp">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
       </div>
