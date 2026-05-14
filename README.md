@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#020408">
 <title>GrowSage — Digital Agency That Grows Brands</title>
-<meta name="description" content="Premium digital agency offering social media marketing, website development, 360° virtual tours, UI/UX design, and video editing.">
+<meta name="description" content="digital agency offering social media marketing, website development, 360° virtual tours, UI/UX design, and video editing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
